@@ -1,0 +1,6 @@
+[18:29:47.615] Failed to set up socket for dynamic port forward to remote port 36823: Proxy connection timed out. TCP port forwarding may be disabled, or the remote server may have crashed. See the VS Code Server log above for details.
+[18:29:47.663] Failed to set up socket for dynamic port forward to remote port 36823: Proxy connection timed out. TCP port forwarding may be disabled, or the remote server may have crashed. See the VS Code Server log above for details.
+[18:29:47.863] Failed to set up socket for dynamic port forward to remote port 36823: Proxy connection timed out. TCP port forwarding may be disabled, or the remote server may have crashed. See the VS Code Server log above for details.
+[18:29:48.048] > accept: Too many open files
+[18:29:49.036] > accept: Too many open files
+[18:29:50.034] > accept: Too many open files
