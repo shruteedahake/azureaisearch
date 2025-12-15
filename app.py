@@ -172,3 +172,33 @@ async def ai_search(user_input):
         "answer": reply,
         "references": unique_references
     }
+
+
+
+###############################################################
+
+results = [doc[KB_FIELDS_SOURCEPAGE] + ": " + doc[KB_FIELDS_CONTENT].replace("\n", "").replace("\r", "") for doc in r] 
+
+    content = "\n".join(results)
+
+    references = []
+    for result in results:
+        ref = result.split(":", 1)[0]   # extracts the page number from the results
+        references.append(ref)  
+
+    unique_references = list(set(references))  # creates a list of the page numbers and removes duplicates
+
+    conversation = [
+        {"role": "system", "content": "Assistant is a great language model formed by OpenAI."}
+    ]
+
+    prompt = await create_prompt(content, user_input)     # combines the question and content, user query along with the results is given to the llm as a prompt to decide a final answer based on the question and the answers provided.
+    
+    conversation.append({"role": "assistant", "content": prompt})
+    conversation.append({"role": "user", "content": user_input})
+
+    reply = await generate_answer(conversation)
+
+    return {
+        "answer": reply
+    }
